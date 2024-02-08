@@ -5,7 +5,6 @@ interface Transaction {
     name: string;
     date: string;
     totalChange: string;
-    link: string;
     type: string;
     finalBalance?: string;
 }
@@ -69,12 +68,10 @@ async function extractPurchaseHistory(page: any): Promise<Transaction[]>  {
             const date = element.querySelector('.wht_date')?.textContent?.trim() || 'No Date Available';
             const totalChange = element.querySelector('.wht_wallet_change')?.textContent?.trim() || 'Balance Change Not Available';
             const finalBalance = element.querySelector('.wht_wallet_balance')?.textContent?.trim() || 'No Balance Available';
-            const link = element.getAttribute('href') || 'No Link Available';
 
             return {
                 name,
                 date,
-                link,
                 totalChange,
                 finalBalance,
                 type
