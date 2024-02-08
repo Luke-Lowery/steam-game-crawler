@@ -1,6 +1,7 @@
 // imports the command line arguments parser and the steamCrawler functions
 const commandLineArgs = require('command-line-args');
-import { crawlSteamStore } from './steamCrawler';
+import { crawlSteamStore } from './gameSearch';
+import { crawlPurchaseHistory } from './purchaseHistory';
 
 // defines the command line arguments
 const optionDefinitions = [
@@ -18,7 +19,8 @@ if (options.mode === 1 && options.searchString) {
     crawlSteamStore(options.searchString);
 } else if (options.mode === 2 && options.username && options.password) {
     console.log("Crawling Steam Purchase History for: " + options.username)
-    //crawlPurchaseHistory(options.username, options.password, options.numItems || 10);
+    crawlPurchaseHistory(options.username, options.password);
+    console.log('Crawled purchase history for: ' + options.username);
 } else {
     console.log("Invalid mode or missing required arguments.");
 }

@@ -1,3 +1,4 @@
+import { waitForKeypress } from "./utility";
 const playwright = require('playwright');
 
 interface Game {
@@ -12,7 +13,7 @@ export async function crawlSteamStore(searchString: string): Promise<void> {
     // Crawling Steam store based on search string
 
     // Initialize chromium browser and page
-    const browser = await playwright['chromium'].launch();
+    const browser = await playwright['chromium'].launch({headless: false});
     const context = await browser.newContext()
     const page = await context.newPage()
 
@@ -63,8 +64,4 @@ async function extractGames(page: any): Promise<Game[]> {
     });
 
     return games;
-}
-
-export async function crawlPurchaseHistory(username: string, password: string, numItems: number): Promise<void> {
-    // Crawling purchase history
 }
