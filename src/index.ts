@@ -7,8 +7,7 @@ const optionDefinitions = [
     { name: 'mode', alias: 'm', type: Number },
     { name: 'searchString', alias: 's', type: String },
     { name: 'username', alias: 'u', type: String },
-    { name: 'password', alias: 'p', type: String },
-    { name: 'numItems', alias: 'n', type: Number }
+    { name: 'password', alias: 'p', type: String }
 ];
 
 const options: any = commandLineArgs(optionDefinitions);

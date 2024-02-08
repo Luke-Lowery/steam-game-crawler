@@ -4,7 +4,8 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "test": "ts-node src/index.ts"
+    "search": "npx ts-node src/index.ts --mode 1",
+    "history": "npx ts-node src/index.ts --mode 2"
   },
   "keywords": [],
   "author": "Luke Lowery",
